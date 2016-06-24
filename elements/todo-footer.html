@@ -1,0 +1,33 @@
+<link rel="import" href="../third_party/polymer/polymer.html">
+
+<link rel="import" href="todo-styles.html">
+
+<dom-module id="todo-footer">
+  <template>
+    <style is="custom-style" include="todo-styles">
+
+    </style>
+
+    <footer class="footer">
+      <!-- This should be `0 items left` by default -->
+      <span class="todo-count"><strong>0</strong> item left</span>
+      <!-- Remove this if you don't implement routing -->
+      <ul class="filters">
+        <li>
+          <a class="selected" href="#/">All</a>
+        </li>
+        <li>
+          <a href="#/active">Active</a>
+        </li>
+        <li>
+          <a href="#/completed">Completed</a>
+        </li>
+      </ul>
+      <!-- Hidden if no completed items are left ↓ -->
+      <button class="clear-completed">Clear completed</button>
+    </footer>
+
+  </template>
+</dom-module>
+
+<script src="todo-footer.js"></script>

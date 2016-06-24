@@ -1,0 +1,53 @@
+<link rel="import" href="../third_party/polymer/polymer.html">
+
+<link rel="import" href="todo-item.html">
+
+<link rel="import" href="todo-styles.html">
+
+<dom-module id="todo-items">
+  <template>
+    <style is="custom-style" include="todo-styles">
+
+      :host {
+        display: block;
+      }
+
+      todo-item {
+        border-top: 1px solid #ededed;
+      }
+
+      todo-item:first-child {
+        border-top: none;
+      }
+
+
+    </style>
+
+    <ul class="todo-list">
+      <!-- These are here just to show the structure of the list items -->
+      <!-- List items should get the class `editing` when editing and `completed` when marked as completed -->
+      <template is="dom-repeat" items="[[list]]" as="todoItem">
+        <todo-item model="[[todoItem]]"></todo-item>
+      </template>
+      <!--<li class="completed">-->
+        <!--<div class="view">-->
+          <!--<input class="toggle" type="checkbox" checked>-->
+          <!--<label>Taste JavaScript</label>-->
+          <!--<button class="destroy"></button>-->
+        <!--</div>-->
+        <!--<input class="edit" value="Create a TodoMVC template">-->
+      <!--</li>-->
+      <!--<li>-->
+        <!--<div class="view">-->
+          <!--<input class="toggle" type="checkbox">-->
+          <!--<label>Buy a unicorn</label>-->
+          <!--<button class="destroy"></button>-->
+        <!--</div>-->
+        <!--<input class="edit" value="Rule the web">-->
+      <!--</li>-->
+    </ul>
+
+  </template>
+</dom-module>
+
+<script src="todo-items.js"></script>

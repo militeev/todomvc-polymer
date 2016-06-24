@@ -1,0 +1,31 @@
+<link rel="import" href="../third_party/polymer/polymer.html">
+<link rel="import" href="todo-header.html">
+<link rel="import" href="todo-items.html">
+<link rel="import" href="todo-footer.html">
+
+<link rel="import" href="todo-styles.html">
+
+<dom-module id="todo-app">
+  <template>
+    <style is="custom-style" include="todo-styles">
+      *[hidden] {
+        display: none;
+      }
+    </style>
+
+    <section class="todoapp">
+      <todo-header></todo-header>
+      <!-- This section should be hidden by default and shown when there are todos -->
+      <todo-items class="main"
+                  list="[[state.todoList]]"
+                  hidden$="[[!state.todoList.length]]">
+      </todo-items>
+      <!-- This footer should hidden by default and shown when there are todos -->
+      <todo-footer hidden$="[[!state.todoList.length]]">
+      </todo-footer>
+    </section>
+
+  </template>
+</dom-module>
+
+<script src="todo-app.js"></script>
