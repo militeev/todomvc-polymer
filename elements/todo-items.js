@@ -5,9 +5,19 @@ Polymer({
   is: 'todo-items',
 
   behaviors: [
-    PolymerFlow.ListView
+    PolymerFlow.ListView,
+    PolymerFlow.StateAware,
   ],
 
-  properties: {}
+  properties: {},
+
+  filterList(elem) {
+    let filter = this.get('state.filterFunc');
+    return !filter || filter(elem);
+  },
+
+  render() {
+    this.$['list-template'].render();
+  }
 
 });

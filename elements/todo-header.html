@@ -50,6 +50,7 @@
       <input class="toggle-all"
              type="checkbox"
              checked="{{state.allCompleted::change}}"
+             hidden="[[!state.todoList.length]]"
              on-change="onAllCompletedChange">
       <input class="new-todo"
              placeholder="What needs to be done?"

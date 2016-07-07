@@ -112,12 +112,12 @@
     </style>
 
     <li completed$="[[model.completed]]" editing$="[[isEditing]]">
-      <div class="view" hidden="[[isEditing]]" on-dblclick="onViewDblClick">
+      <div class="view" hidden="[[isEditing]]">
         <input class="toggle"
                type="checkbox"
-               checked="{{model.completed::change}}"
+               checked="[[model.completed]]"
                on-change="onCompletedChange">
-        <label>[[model.text]]</label>
+        <label on-dblclick="onViewDblClick">[[model.text]]</label>
         <button class="destroy" on-tap="onDestroyTap"></button>
       </div>
       <input id="text-input"
@@ -132,3 +132,5 @@
 </dom-module>
 
 <script src="todo-item.js"></script>
+
+<!--checked="{{model.completed::change}}"-->

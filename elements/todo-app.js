@@ -10,10 +10,26 @@ Polymer({
 
   behaviors: [
     PolymerFlow.ApplicationState,
-    PolymerFlow.ActionEmitter
+    PolymerFlow.ActionEmitter,
+    PolymerFlow.ApplicationRouter,
   ],
 
-  properties: {},
+  observers: [
+    'routeChanged(state.route)'
+  ],
+
+  properties: {
+  },
+
+  routeChanged(route) {
+    let filterFunc = null;
+    switch (route && route.valueAt && route.valueAt(1)) {
+      case 'active': filterFunc = elem => !elem.completed; break;
+      case 'completed': filterFunc = elem => elem.completed; break;
+    }
+    this.set('state.filterFunc', filterFunc);
+    this.$['list'].render();
+  },
 
   get actionDispatchers() {
     return [todo.ActionDispatcher];
@@ -23,9 +39,6 @@ Polymer({
     this.set('state', {
       todoList: [],
       allCompleted: false
-    });
-    this.emitAction({
-      type: todo.actions.INIT_APPLICATION
     });
   }
 

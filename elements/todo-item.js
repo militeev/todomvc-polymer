@@ -58,9 +58,11 @@ Polymer({
   },
 
   onCompletedChange(e) {
-    this.model.completed = e.target.checked;
+    // this.model.completed = e.target.checked;
     this.emitAction({
       type: todo.actions.SELECTION_CHANGED,
+      model: this.model,
+      completed: e.target.checked
     });
   }
 
